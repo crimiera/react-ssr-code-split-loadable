@@ -1,10 +1,21 @@
 import React, { Component } from 'react'
+import { create } from 'domain';
 
 
-const AsyncLoading = (LoadComponent) => {
+const COMPONENTS = [
+  /**
+   *  { path :  }
+   */
+];  
+
+const AsyncLoading = (LoadComponent,opt) => {
+
+    createComponent(LoadComponent,opt);
+}
+
+const createComponent  =  (comp,option) => {
   
-
-   class DynamicImport extends Component {
+  return class DynamicImport extends Component {
     
     constructor(props){
       super(props);
@@ -16,8 +27,7 @@ const AsyncLoading = (LoadComponent) => {
     }
 
     componentDidMount () {
-
-      LoadComponent().then(component => {
+      comp().then(component => {
         this.setState({component: component.default});
       });
     }
