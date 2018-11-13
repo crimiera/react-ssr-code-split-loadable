@@ -20,7 +20,7 @@ class Contact extends Component   {
     console.log("Render called ")
     return (
       <div>
-      Contact component 
+      Contact component with chANGE 
       </div>
     )
   }

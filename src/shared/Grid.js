@@ -50,7 +50,7 @@ class Grid extends Component {
 
     return (
       <ul style={{display: 'flex', flexWrap: 'wrap'}}>
-        {repos.map(({ name, owner, stargazers_count, html_url }) => (
+        {(repos )?repos.map(({ name, owner, stargazers_count, html_url }) => (
           <li key={name} style={{margin: 30}}>
             <ul>
               <li><a href={html_url}>{name}</a></li>
@@ -59,7 +59,7 @@ class Grid extends Component {
               <li>fffss</li>
             </ul>
           </li>
-        ))}
+        )): null}
       </ul>
     )
   }
