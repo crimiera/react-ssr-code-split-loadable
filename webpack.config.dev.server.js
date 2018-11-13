@@ -2,9 +2,8 @@ var path = require('path')
 var webpack = require('webpack')
 var nodeExternals = require('webpack-node-externals')
 var WebpackShellPlugin = require('webpack-shell-plugin')
-//var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 var CleanWebpackPlugin = require('clean-webpack-plugin');
-var ManifestPlugin = require('webpack-manifest-plugin');
+
 
 
 var serverConfig = {
@@ -26,6 +25,9 @@ var serverConfig = {
   plugins: [
     new webpack.DefinePlugin({
       __isBrowser__: "false"
+    }),
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1,
     }),
     new WebpackShellPlugin({onBuildStart:['echo "Webpack Server Start"'], onBuildEnd:['nodemon  dist/server.js ']}),
   ]

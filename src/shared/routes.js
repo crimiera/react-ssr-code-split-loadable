@@ -1,13 +1,12 @@
 
 import React from 'react';
+import Loadable from 'react-loadable';
 import AsyncLoading from './HOCS/AsyncLoading.js';
 import Grid from './Grid'
-
 import { fetchPopularRepos } from './api'
 
-
 const Loader = () => {
-  return (<div >Loading ...</div>)
+  return <div >Loading ...</div>
 }
 
 const routes =  [
@@ -25,19 +24,26 @@ const routes =  [
   },
   {
     path: '/try',
-    component: AsyncLoading(() => import("./Pages/Try"))
+    component:Loadable({
+      loader: () => import('./Pages/Try'),
+      loading: Loader,
+    })
+
   },
   {
     path: '/page',
-    component: AsyncLoading(() => import("./Pages/Page"))
+    component: Loadable({
+      loader: () => import('./Pages/Page'),
+      loading: Loader,
+    })
   },
   {
     path: '/contact',
-    component: AsyncLoading(() => import("./Pages/Contact"))
+    component: Loadable({
+      loader: () => import('./Pages/Contact'),
+      loading: Loader,
+    })
   },
-
-
-
 ]
 
 export default routes
