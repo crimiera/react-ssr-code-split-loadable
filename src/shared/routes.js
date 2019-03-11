@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Loadable from 'react-loadable';
-import AsyncLoading from './HOCS/AsyncLoading.js';
+//import AsyncLoading from './HOCS/AsyncLoading.js';
 import Grid from './Grid'
 import { fetchPopularRepos } from './api'
 

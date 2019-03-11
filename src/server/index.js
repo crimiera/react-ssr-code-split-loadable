@@ -38,7 +38,7 @@ app.get("*", (req, res, next) => {console.log("active route");
 
     let bundles = getBundles(stats, modules);
     
-    console.log(bundles,stats.domain[0].file);
+   // console.log(bundles,stats.domain);
     
     res.send(`
       <!DOCTYPE html>
@@ -55,7 +55,7 @@ app.get("*", (req, res, next) => {console.log("active route");
   
             return `<script src="${bundle.publicPath}"></script>`
           }).join('\n')}
-          <script src="${stats.domain[0].file}"></script>
+  
         </body>
       </html>
     `)

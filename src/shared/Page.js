@@ -16,5 +16,4 @@ class Page extends React.Component {
   }
 }
 
-
 export default Page
